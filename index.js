@@ -8,6 +8,10 @@ mongoose.connect('mongodb://localhost:27017/User')
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send('Use Postman to check')
+})
+
 app.post('/api/auth/register', async(req, res) => {
   const user = new User(req.body);
   await user.save();
